@@ -29,7 +29,7 @@ export const sendNewUserMail = async (data: any) => {
     {
       from: 'spareakhil@gmail.com', // sender address
       to: 'akhil1922002@gmail.com', // list of receivers
-      subject: 'Your Image', // Subject line
+      subject: 'New User From the Site', // Subject line
       text: JSON.stringify(data), // plain text body
       html: `
       <div>
