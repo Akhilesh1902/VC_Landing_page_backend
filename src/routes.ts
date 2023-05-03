@@ -9,7 +9,7 @@ router.get('/', (req: Request, res: Response) => {
 
 router.post('/newContact', (req: Request, res: Response) => {
   console.log(req.body);
-  // SQL_Instacnce.insertUser(req.body);
+  SQL_Instacnce.insertUser(req.body);
   sendNewUserMail(req.body);
   res.send('response');
 });

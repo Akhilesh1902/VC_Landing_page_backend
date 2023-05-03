@@ -6,7 +6,6 @@ import SMTPTransport from 'nodemailer/lib/smtp-transport';
 // };
 
 export const sendNewUserMail = async (data: any) => {
-  console.log('sending mails');
   const transporter = nodemailer.createTransport({
     // host: 'smtp.ethereal.email',
     host: process.env.HOST_NAME,
@@ -28,7 +27,7 @@ export const sendNewUserMail = async (data: any) => {
   let info = transporter.sendMail(
     {
       from: 'spareakhil@gmail.com', // sender address
-      to: 'akhil1922002@gmail.com', // list of receivers
+      to: 'rk@viscommerce.com', // list of receivers
       subject: 'New User From the Site', // Subject line
       text: JSON.stringify(data), // plain text body
       html: `
