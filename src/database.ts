@@ -48,26 +48,27 @@ export class SQL_Instance {
     });
   }
   insertUser(userData: userData) {
-    console.log(`INSERT INTO ${this.tablename} VALUES(
-      '${userData.name}',
-      '${userData.phone}',
-      '${userData.email}',
-      '${userData.message}',
-      '${userData.currentpage}',
-      '${userData.refUrl}',
-      '${userData.ipaddress}',
-      '${userData.addedon}',
-    );`);
-    this.connection.query(`SELECT * from ${this.tablename}`, (err, res) => {
-      console.log(res);
-    });
-    // this.connection.query(
-    //   `INSERT INTO ${this.tablename} VALUES('${userData.name}','${userData.phone}','${userData.email}','${userData.message}','${userData.currentpage}','${userData.refUrl}','${userData.ipaddress}','${userData.addedon}');`,
-    //   (err, res) => {
-    //     if (err) console.log({ err });
-    //     if (res) console.log({ res });
-    //   }
-    // );
+    // console.log(`INSERT INTO ${this.tablename} VALUES(
+    //   '${userData.name}',
+    //   '${userData.phone}',
+    //   '${userData.email}',
+    //   '${userData.message}',
+    //   '${userData.currentpage}',
+    //   '${userData.refUrl}',
+    //   '${userData.ipaddress}',
+    //   '${userData.addedon}',
+    // );`);
+    console.log('Inserting new user');
+    // this.connection.query(`SELECT * from ${this.tablename}`, (err, res) => {
+    //   console.log(res);
+    // });
+    this.connection.query(
+      `INSERT INTO ${this.tablename} VALUES('${userData.name}','${userData.phone}','${userData.email}','${userData.message}','${userData.currentpage}','${userData.refUrl}','${userData.ipaddress}','${userData.addedon}');`,
+      (err, res) => {
+        if (err) console.log({ err });
+        if (res) console.log({ res });
+      }
+    );
   }
 
   // connection.connect((err) => {

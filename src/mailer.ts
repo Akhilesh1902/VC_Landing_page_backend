@@ -27,7 +27,7 @@ export const sendNewUserMail = async (data: any) => {
   let info = transporter.sendMail(
     {
       from: 'spareakhil@gmail.com', // sender address
-      to: 'rk@viscommerce.com', // list of receivers
+      to: 'info@viscommerce.com', // list of receivers
       subject: 'New User From the Site', // Subject line
       text: JSON.stringify(data), // plain text body
       html: `

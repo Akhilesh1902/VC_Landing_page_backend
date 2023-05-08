@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const _1 = require(".");
 const mailer_1 = require("./mailer");
 const router = express_1.default.Router();
 router.get('/', (req, res) => {
@@ -11,7 +12,7 @@ router.get('/', (req, res) => {
 });
 router.post('/newContact', (req, res) => {
     console.log(req.body);
-    // SQL_Instacnce.insertUser(req.body);
+    _1.SQL_Instacnce.insertUser(req.body);
     (0, mailer_1.sendNewUserMail)(req.body);
     res.send('response');
 });

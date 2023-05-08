@@ -18,7 +18,6 @@ const nodemailer_1 = __importDefault(require("nodemailer"));
 //   //
 // };
 const sendNewUserMail = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log('sending mails');
     const transporter = nodemailer_1.default.createTransport({
         // host: 'smtp.ethereal.email',
         host: process.env.HOST_NAME,
@@ -38,7 +37,7 @@ const sendNewUserMail = (data) => __awaiter(void 0, void 0, void 0, function* ()
     });
     let info = transporter.sendMail({
         from: 'spareakhil@gmail.com',
-        to: 'akhil1922002@gmail.com',
+        to: 'info@viscommerce.com',
         subject: 'New User From the Site',
         text: JSON.stringify(data),
         html: `
