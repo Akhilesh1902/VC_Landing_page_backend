@@ -24,17 +24,6 @@ class SQL_Instance {
                 console.log('Successfully connected to Sql database ! ');
             }
         });
-        // this.showSchema();
-        // this.insertUser({
-        //   name: 'testUser',
-        //   phone: '123123123',
-        //   email: 'testemail@mail.com',
-        //   message: 'test message',
-        //   currentpage: 'test current page',
-        //   refUrl: 'refurl.ocm',
-        //   ipaddress: '1233-1231-1231-1312',
-        //   addedon: '12312312312',
-        // });
     }
     showSchema() {
         this.connection.query(`DESC ${this.tablename} ;`, (err, result, fields) => {
@@ -47,20 +36,7 @@ class SQL_Instance {
         });
     }
     insertUser(userData) {
-        // console.log(`INSERT INTO ${this.tablename} VALUES(
-        //   '${userData.name}',
-        //   '${userData.phone}',
-        //   '${userData.email}',
-        //   '${userData.message}',
-        //   '${userData.currentpage}',
-        //   '${userData.refUrl}',
-        //   '${userData.ipaddress}',
-        //   '${userData.addedon}',
-        // );`);
         console.log('Inserting new user');
-        // this.connection.query(`SELECT * from ${this.tablename}`, (err, res) => {
-        //   console.log(res);
-        // });
         this.connection.query(`INSERT INTO ${this.tablename} VALUES('${userData.name}','${userData.phone}','${userData.email}','${userData.message}','${userData.currentpage}','${userData.refUrl}','${userData.ipaddress}','${userData.addedon}');`, (err, res) => {
             if (err)
                 console.log({ err });
@@ -70,4 +46,3 @@ class SQL_Instance {
     }
 }
 exports.SQL_Instance = SQL_Instance;
-// console.log(connection);

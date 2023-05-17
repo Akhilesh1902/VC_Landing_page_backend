@@ -1,5 +1,4 @@
 import mysql from 'mysql2';
-import { callbackify } from 'util';
 import { userData } from './types';
 
 export class SQL_Instance {
@@ -17,19 +16,14 @@ export class SQL_Instance {
       // insecureAuth: true,
     });
     this.tablename = 'viscommerce_table';
-    try {
-      this.connection.connect((err) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log('Successfully connected to Sql database ! ');
-        }
-      });
-    } catch (err) {
-      console.log(err);
-    } finally {
-      this.connection.destroy();
-    }
+
+    this.connection.connect((err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('Successfully connected to Sql database ! ');
+      }
+    });
   }
 
   showSchema() {

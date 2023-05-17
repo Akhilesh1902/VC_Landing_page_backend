@@ -14,10 +14,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendNewUserMail = void 0;
 const nodemailer_1 = __importDefault(require("nodemailer"));
-// type transportOPtions = {
-//   //
-// };
 const sendNewUserMail = (data) => __awaiter(void 0, void 0, void 0, function* () {
+    /* This code is creating a nodemailer transporter object that will be used to send an email. The
+    transporter object is created using the `createTransport` method of the nodemailer module. The
+    transporter object is configured with the SMTP settings required to send an email using a Gmail
+    account. The SMTP settings include the host name, port number, authentication details, and
+    security settings. The authentication details include the OAuth2 credentials required to
+    authenticate the Gmail account. The transporter object is returned and stored in the
+    `transporter` constant. */
     const transporter = nodemailer_1.default.createTransport({
         // host: 'smtp.ethereal.email',
         host: process.env.HOST_NAME,
@@ -43,6 +47,22 @@ const sendNewUserMail = (data) => __awaiter(void 0, void 0, void 0, function* ()
         html: `
       <div>
       ${Object.keys(data).map((item) => `<p>${item} : ${data[`${item}`]}</p>`)}
+      </div>
+      `, // html body
+    }, (err) => {
+        console.log(err);
+    });
+    let userRes = transporter.sendMail({
+        from: 'spareakhil@gmail.com',
+        to: data.email,
+        subject: 'Welcome to Viscommerse',
+        //text: JSON.stringify(data), // plain text body
+        html: `
+      <div>
+        <p>Than you for Reaching out to VisCommerse Team, Our Executive will soon be in touch with you</p>
+        </br>
+        </br>
+        <p>Thank You</p>
       </div>
       `, // html body
     }, (err) => {

@@ -12,6 +12,8 @@ router.get('/', (req, res) => {
 });
 router.post('/newContact', (req, res) => {
     console.log(req.body);
+    /* `SQL_Instacnce.insertUser(req.body)` is inserting a new user into a SQL database using the
+  `insertUser` method of the `SQL_Instacnce` object. */
     _1.SQL_Instacnce.insertUser(req.body);
     (0, mailer_1.sendNewUserMail)(req.body);
     res.send('response');
