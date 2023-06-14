@@ -23,24 +23,14 @@ const sendNewUserMail = (data) => __awaiter(void 0, void 0, void 0, function* ()
     authenticate the Gmail account. The transporter object is returned and stored in the
     `transporter` constant. */
     const transporter = nodemailer_1.default.createTransport({
-        // host: 'smtp.ethereal.email',
-        host: process.env.HOST_NAME,
         service: 'gmail',
-        port: 465,
-        secure: true,
-        // port: 587,
         auth: {
-            type: 'OAuth2',
-            user: process.env.GMAIL_LOGIN_ID,
-            pass: process.env.GMAIL_LOGIN_PASS,
-            clientId: process.env.GMAIL_CLIENT_ID,
-            clientSecret: process.env.GMAIL_CLIENT_SECRET,
-            refreshToken: process.env.GMAIL_REFRESH_TOKEN,
-            accessToken: process.env.GMAIL_ACCESS_TOKEN,
+            user: 'viscommercesite@gmail.com',
+            pass: 'udvdjccqcaikmksv',
         },
     });
     let info = transporter.sendMail({
-        from: 'spareakhil@gmail.com',
+        from: 'viscommercesite@gmail.com',
         to: 'info@viscommerce.com',
         subject: 'New User From the Site',
         text: JSON.stringify(data),
@@ -53,7 +43,7 @@ const sendNewUserMail = (data) => __awaiter(void 0, void 0, void 0, function* ()
         console.log(err);
     });
     let userRes = transporter.sendMail({
-        from: 'spareakhil@gmail.com',
+        from: 'viscommercesite@gmail.com',
         to: data.email,
         subject: 'Welcome to Viscommerse',
         //text: JSON.stringify(data), // plain text body

@@ -16,7 +16,7 @@ export class SQL_Instance {
       // insecureAuth: true,
     });
     this.tablename = 'viscommerce_table';
-    this.connect();
+    // this.connect();
   }
 
   async connect() {
@@ -32,6 +32,8 @@ export class SQL_Instance {
       });
     });
   }
+
+  // async handleDisconnect() {}
 
   async showSchema() {
     await this.connect();

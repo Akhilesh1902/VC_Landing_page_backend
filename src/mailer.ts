@@ -12,26 +12,16 @@ export const sendNewUserMail = async (data: any) => {
   `transporter` constant. */
 
   const transporter = nodemailer.createTransport({
-    // host: 'smtp.ethereal.email',
-    host: process.env.HOST_NAME,
     service: 'gmail',
-    port: 465,
-    secure: true,
-    // port: 587,
     auth: {
-      type: 'OAuth2',
-      user: process.env.GMAIL_LOGIN_ID,
-      pass: process.env.GMAIL_LOGIN_PASS,
-      clientId: process.env.GMAIL_CLIENT_ID,
-      clientSecret: process.env.GMAIL_CLIENT_SECRET,
-      refreshToken: process.env.GMAIL_REFRESH_TOKEN,
-      accessToken: process.env.GMAIL_ACCESS_TOKEN,
+      user: 'viscommercesite@gmail.com',
+      pass: 'udvdjccqcaikmksv',
     },
   } as SMTPTransport.Options);
 
   let info = transporter.sendMail(
     {
-      from: 'spareakhil@gmail.com', // sender address
+      from: 'viscommercesite@gmail.com', // sender address
       to: 'info@viscommerce.com', // list of receivers
       subject: 'New User From the Site', // Subject line
       text: JSON.stringify(data), // plain text body
@@ -47,7 +37,7 @@ export const sendNewUserMail = async (data: any) => {
   );
   let userRes = transporter.sendMail(
     {
-      from: 'spareakhil@gmail.com', // sender address
+      from: 'viscommercesite@gmail.com', // sender address
       to: data.email, // list of receivers
       subject: 'Welcome to Viscommerse', // Subject line
       //text: JSON.stringify(data), // plain text body

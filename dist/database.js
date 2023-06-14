@@ -25,7 +25,7 @@ class SQL_Instance {
             // insecureAuth: true,
         });
         this.tablename = 'viscommerce_table';
-        this.connect();
+        // this.connect();
     }
     connect() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -43,6 +43,7 @@ class SQL_Instance {
             });
         });
     }
+    // async handleDisconnect() {}
     showSchema() {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.connect();
@@ -54,6 +55,7 @@ class SQL_Instance {
                     console.log(result);
                 }
             });
+            this.connection.destroy();
         });
     }
     insertUser(userData) {
@@ -66,6 +68,7 @@ class SQL_Instance {
                 if (res)
                     console.log({ res });
             });
+            this.connection.destroy();
         });
     }
 }
